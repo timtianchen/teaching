@@ -35,4 +35,33 @@ def fun_principal_stress(sigma_avg, radius):
 def r(x,d=4):
     return round(x,d)
 
+def axMod(fig,ax,l):
+    
+    fig.canvas.toolbar_visible = False
+    fig.canvas.header_visible = False
+    fig.canvas.resizable = False
+
+    ax.set_aspect(1) # set aspect ratio to 1:1
+    ax.set_xlim([-l,l]) # set x limit
+    ax.set_ylim([-l,l]) # set x limit
+
+    # Move left y-axis and bottim x-axis to centre, passing through (0,0)
+    ax.spines['left'].set_position('center')
+    ax.spines['bottom'].set_position('center')
+
+    # Eliminate upper and right axes
+    ax.spines['right'].set_color('none')
+    ax.spines['top'].set_color('none')
+
+    # Show ticks in the left and lower axes only
+    ax.xaxis.set_ticks_position('bottom')
+    ax.yaxis.set_ticks_position('left')
+
+    # Set x and y label
+    ax.set_xlabel(r'$\tau$')
+    ax.set_ylabel(r'$\sigma$')
+
+    # Position x and y label
+    ax.xaxis.set_label_position("top")
+    ax.yaxis.set_label_position("right")
 
